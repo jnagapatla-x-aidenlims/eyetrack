@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o/icf/{filename} {
+    allow create: if request.auth != null && filename.matches(request.auth.uid+".pdf") && request.resource.contentType.matches('application/pdf');
+  }
+  match /b/{bucket}/o/data/{filename} {
+    allow create: if request.auth != null && filename.matches(request.auth.uid+".eyedata") && request.resource.contentType.matches('application/json');
+		allow delete: if request.auth != null && filename.matches(request.auth.uid+".eyedata");
+  }
+}

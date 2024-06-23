@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="light" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Study on Emotional Resonance</title>
+        <meta property="og:type" content="website">
+        <meta name="description" content="Janav Nagapatla and Aiden Lim for HSSRP 2024">
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+                "name": "Study on Emotional Resonance",
+                "url": "https://hssrpstudy-emotional-resonance.web.app/"
+            }
+        </script>
+        <link rel="stylesheet" href="/assets/styling/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/styling/styles.min.css">
+        <link rel="icon" href="/assets/img/favicon.ico">
+    </head>
+
+    <body>
+        <div id="fullpage">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-md sticky-top navbar-shrink py-3 navbar-light" id="mainNav">
+                <div class="container"><a class="navbar-brand d-flex align-items-center"><span class="fw-normal" style="color: #00205c;">study on&nbsp;</span><strong style="color: #ce0e2d;">emotional&nbsp;</strong><strong style="color: #ffc629;">resonance</strong></a>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="navbar-nav mx-auto"></ul>
+                        <div id="navbarbutton"></div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main -->
+            <main class="bg-primary-gradient" id="maincontent"></main>
+            
+            <!-- Footer -->
+            <footer class="bg-primary-gradient">
+                <div class="container py-4 py-lg-5">
+                    <div class="row justify-content-center">
+                        <div class="col text-center text-lg-start d-flex flex-column align-items-center align-items-lg-start">
+                            <div class="fw-bold d-flex align-items-center mb-2"><span class="fw-normal" style="color: #00205c;">study on&nbsp;</span><strong style="color: #ce0e2d;">emotional&nbsp;</strong><strong style="color: #ffc629;">resonance</strong></div>
+                            <p class="text-muted">A website designed to collect data for the 2024 Humanities and Social Sciences Research Programme<br>Student Investigators: Janav Nagapatla and Lim Yong Cen Aiden, under the mentorship of Assoc. Prof. Xu Hong of NTU</p>
+                            <p class="text-muted">NTU Institutional Research Board Study Ref. No.:&nbsp;<span style="text-decoration: underline;">IRB-2020-05-005</span><br>HSSRP Project Ref. No.: <span style="text-decoration: underline;">ACS(I) P4</span></p>
+                            <p class="text-muted">Contact <a href="mailto:21janav.nagapatla@acsians.acsi.edu.sg">21janav.nagapatla@acsians.acsi.edu.sg</a> via e-mail for support</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                        <p class="mb-0">Copyright © 2024 Nanyang Technological University and Anglo-Chinese School (Independent)</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div id="calibration" hidden>
+            <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
+            <div class="calibrationDiv">
+                <input type="button" class="Calibration" id="Pt1"></input>
+                <input type="button" class="Calibration" id="Pt2"></input>
+                <input type="button" class="Calibration" id="Pt3"></input>
+                <input type="button" class="Calibration" id="Pt4"></input>
+                <input type="button" class="Calibration" id="Pt5"></input>
+                <input type="button" class="Calibration" id="Pt6"></input>
+                <input type="button" class="Calibration" id="Pt7"></input>
+                <input type="button" class="Calibration" id="Pt8"></input>
+                <input type="button" class="Calibration" id="Pt9"></input>
+            </div>
+        </div>
+
+        <div id="study" style="background-image: url('noise/NoisePattern1.jpeg'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100vh" hidden>
+            <div id="black" style="background-color: #000000; height: 100%">
+                <img src="assets/img/cross.svg" id="cross" style="height: 100vh; display: block; margin-left: auto; margin-right: auto;">
+                <img src="dataset/StyleGANi1.png" id="face" style="height: 100vh; display: block; margin-left: auto; margin-right: auto;" hidden>
+            </div>
+        </div>
+
+        <button id="calibrationcomplete" hidden></button>
+
+        <!-- JavaScript Libraries -->
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/webgazer/webgazer.js"></script>
+        <script src="/assets/styling/bootstrap.min.js"></script>
+        <script src="/assets/styling/script.min.js"></script>
+
+        <!-- Main JavaScript of Webpage -->
+        <script type="module" src="/assets/js/main.js"></script>
+    </body>
+</html>
