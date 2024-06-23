@@ -52,27 +52,27 @@ var faces = {
     }, img11: {
         name: "FFHQi1",
         nature: 2,
-        source: "/dataset/FFHQi1.png Background Removed",
+        source: "/dataset/FFHQi1 Background Removed.png",
         noise: "/noise/NoisePattern11.jpeg"
     }, img12: {
         name: "FFHQi2",
         nature: 2,
-        source: "/dataset/FFHQi2.png Background Removed",
+        source: "/dataset/FFHQi2 Background Removed.png",
         noise: "/noise/NoisePattern12.jpeg"
     }, img13: {
         name: "FFHQi3",
         nature: 2,
-        source: "/dataset/FFHQi3.png Background Removed",
+        source: "/dataset/FFHQi3 Background Removed.png",
         noise: "/noise/NoisePattern13.jpeg"
     }, img14: {
         name: "FFHQi4",
         nature: 2,
-        source: "/dataset/FFHQi4.png Background Removed",
+        source: "/dataset/FFHQi4 Background Removed.png",
         noise: "/noise/NoisePattern14.jpeg"
     }, img15: {
         name: "FFHQi5",
         nature: 2,
-        source: "/dataset/FFHQi5.png Background Removed",
+        source: "/dataset/FFHQi5 Background Removed.png",
         noise: "/noise/NoisePattern15.jpeg"
     }
 }
