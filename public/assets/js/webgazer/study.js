@@ -1,4 +1,4 @@
-var image, feeling, nature, strength, videogames, movies, robots, ai, dolls, exposure, comfort, gazedata, coord, aimg;
+var image, attractiveness, realism, justification, nature, videogames, movies, robots, ai, dolls, exposure, comfort, gazedata, coord, aimg, x, width;
 
 async function start() {
     aimg = {}
@@ -17,6 +17,9 @@ async function start() {
         image = data.gaze.getImg();
         $('#study').attr("style", `background-image: url('${image.noise}'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100vh`);
         $('#face').attr("src", image.source)
+
+        x = document.getElementById("face").getBoundingClientRect().x;
+        width = document.getElementById("face").getBoundingClientRect().width;
 
         // Show cross for 1 second
         await sleep(1000);
@@ -43,9 +46,10 @@ async function start() {
         await new Promise(function(resolve) {$('#postcyclebutton').on("submit", resolve);});
         
         // Get participant opinions
-        feeling = $('#postcyclefeels').val();
+        attractiveness = $('#postcycleattractiveness').val();
+        realism = $('#postcyclerealism').val();
+        justification = $('#postcyclejustification').val();
         nature = $('#postcyclenature').val();
-        strength = $('#postcyclestrength').val();
 
         $("#postcyclebutton")[0].reset();
 
@@ -53,7 +57,7 @@ async function start() {
         $('#black').removeAttr("hidden", "");
         $('#cross').removeAttr("hidden", "");
 
-        aimg[image.name] = {gaze: gazedata, feeling: feeling, nature: nature, strength: strength};
+        aimg[image.name] = {gaze: gazedata, attractiveness: attractiveness, realism: realism, justification: justification, nature: nature, x: x, width: width};
     }
 
     webgazer.end();
@@ -61,15 +65,15 @@ async function start() {
 
     int.maincontent(int.study.poststudy);
     await new Promise(function(resolve) {$('#poststudybutton').on("submit", resolve);});
-    videogames = $('#videogames')[0].checked;
-    movies = $('#cgimovies')[0].checked;
-    robots = $('#humanoid')[0].checked;
-    ai = $('#generai')[0].checked;
-    dolls = $('#dolls')[0].checked;
+    videogames = $('#videogames').val();
+    movies = $('#cgimovies').val();
+    robots = $('#humanoid').val();
+    ai = $('#generai').val();
+    dolls = $('#dolls').val();
     exposure = $('#exposures').val();
     comfort = $('#comfort').val();
     
-    aimg.final = {videogames: videogames, movies: movies, robots: robots, ai: ai, dolls: dolls, exposure: exposure, comfort: comfort};
+    aimg.final = {schema: "junever", videogames: videogames, movies: movies, robots: robots, ai: ai, dolls: dolls, exposure: exposure, comfort: comfort};
     
     return aimg;
 }

@@ -43,14 +43,25 @@ const postcycle = `
                 <p class="fs-5 text-muted mb-5"><span style="color: rgb(0, 32, 92);">You were shown an image of an artificially-generated or a real human face in the previous page. Please enter the </span><span style="text-decoration: underline; color: rgb(0, 32, 92);">feeling that this face elicited in you</span><span style="color: rgb(0, 32, 92);">.</span></p>
                 <form class="d-flex justify-content-center flex-wrap flex-lg-nowrap" id="postcyclebutton" onSubmit="return false;" data-bs-theme="light">
                     <div class="vstack gap-3">
-                        <div class="input-group"><span class="input-group-text">Feeling</span><input class="form-control" id="postcyclefeels" type="text" placeholder="e.g. joy, sadness, confusion, shock, etc." required=""></div>
-                        <div class="input-group"><span class="input-group-text">Nature of Feeling</span><select id="postcyclenature" class="form-select" required="">
+                        <div class="input-group"><span class="input-group-text">Attractiveness of Image</span><select id="postcycleattractiveness" class="form-select" required="">
                             <option value=""></option>
-                            <option value="Positive">Positive</option>
-                            <option value="Neutral">Neutral</option>
-                            <option value="Negative">Negative</option>
+                            <option value="2">The displayed image is attractive and reassuring (handsome / beautiful)</option>
+                            <option value="1">The displayed image is neutral</option>
+                            <option value="0">The displayed image is unattractive and off-putting (ugly)</option>
                         </select></div>
-                        <div class="input-group"><span class="input-group-text">Strength of Feeling</span><input class="form-control" id="postcyclestrength" type="number" placeholder="Ranging from 0-10" step="0.1" min="0" max="10" required=""></div>
+                        <div class="input-group"><span class="input-group-text">Realism of Image</span><select id="postcyclerealism" class="form-select" required="">
+                            <option value=""></option>
+                            <option value="2">The displayed image appears to be real</option>
+                            <option value="1">The displayed image is possibly real</option>
+                            <option value="0">The displayed image is not real at all</option>
+                        </select></div>
+                        <div class="input-group"><span class="input-group-text">Justification</span><input class="form-control" id="postcyclejustification" type="text" placeholder="Why do you think so; is there anything peculiar about it?" required=""></div>
+                        <div class="input-group"><span class="input-group-text">Nature of Overall Feeling</span><select id="postcyclenature" class="form-select" required="">
+                            <option value=""></option>
+                            <option value="2">I find the image warm and positive</option>
+                            <option value="1">I do not feel much of anything</option>
+                            <option value="o">The image is cold and makes me feel negative</option>
+                        </select></div>
                         <div class="my-2"><button class="btn btn-primary shadow ms-2" type="submit">Proceed to the next stage</button></div>
                     </div>
                 </form>
@@ -68,21 +79,49 @@ const poststudy = `
                 <p class="fs-5 text-muted mb-5"><span style="color: rgb(0, 32, 92);">You were shown many images of artificially-generated and real human faces in the previous pages. Please answer the following post-study questionnaire before completing your participation.</span></p>
                 <form class="d-flex justify-content-center flex-wrap flex-lg-nowrap" id="poststudybutton" onSubmit="return false;" data-bs-theme="light">
                     <div class="vstack gap-3">
-                        <fieldset>
-                            <div class="form-check text-start"><input class="form-check-input" type="checkbox" id="videogames"><label class="form-check-label" for="formCheck-1">Do you play videogames featuring photorealistic animated characters</label></div>
-                            <div class="form-check text-start"><input class="form-check-input" type="checkbox" id="cgimovies"><label class="form-check-label" for="formCheck-2">Do you watch many Computer Generated Imagery (CGI) movies</label></div>
-                            <div class="form-check text-start"><input class="form-check-input" type="checkbox" id="humanoid"><label class="form-check-label" for="formCheck-3">Do you interact with humanoid robots on a frequent basis</label></div>
-                            <div class="form-check text-start"><input class="form-check-input" type="checkbox" id="generai"><label class="form-check-label" for="formCheck-4">Do you often use Generative AI tools to create images of human faces</label></div>
-                            <div class="form-check text-start"><input class="form-check-input" type="checkbox" id="dolls"><label class="form-check-label" for="formCheck-5">Do you frequently play with toy human dolls</label></div>
-                        </fieldset>
-                        <div class="input-group"><span class="input-group-text">Other Exposure</span><input class="form-control" id="exposures" type="text" placeholder="Other interactions you have with artificial humans" required=""></div>
-                        <div class="input-group"><span class="input-group-text">Comfort</span><select id="comfort" class="form-select" required="">
+                        <div class="input-group"><span class="input-group-text">Videogames</span><select id="videogames" class="form-select" required="">
                             <option value=""></option>
-                            <option value="Best">I am very comfortable in interacting with artificial humans</option>
-                            <option value="Good">I am comfortable in interacting with artificial humans</option>
-                            <option value="None">I am neutral in interacting with artificial humans</option>
-                            <option value="Poor">I am uncomfortable in interacting with artificial humans</option>
-                            <option value="Worst">I am very uncomfortable in interacting with artificial humans</option>
+                            <option value="3">I play videogames very often</option>
+                            <option value="2">I play videogames sometimes</option>
+                            <option value="1">I play videogames rarely</option>
+                            <option value="0">I never play videogames</option>
+                        </select></div>
+                        <div class="input-group"><span class="input-group-text">Movies with CGI</span><select id="cgimovies" class="form-select" required="">
+                            <option value=""></option>
+                            <option value="3">I watch CGI movies very often</option>
+                            <option value="2">I watch CGI movies sometimes</option>
+                            <option value="1">I watch CGI movies rarely</option>
+                            <option value="0">I never watch CGI movies</option>
+                        </select></div>
+                        <div class="input-group"><span class="input-group-text">Humanoids</span><select id="humanoid" class="form-select" required="">
+                            <option value=""></option>
+                            <option value="3">I interact with humanoid robots very often</option>
+                            <option value="2">I interact with humanoid robots sometimes</option>
+                            <option value="1">I interact with humanoid robots rarely</option>
+                            <option value="0">I never interact with humanoid robots</option>
+                        </select></div>
+                        <div class="input-group"><span class="input-group-text">Generative AI</span><select id="generai" class="form-select" required="">
+                            <option value=""></option>
+                            <option value="3">I use Generative AI tools to create images very often</option>
+                            <option value="2">I use Generative AI tools to create images sometimes</option>
+                            <option value="1">I use Generative AI tools to create images rarely</option>
+                            <option value="0">I never use Generative AI tools to create images</option>
+                        </select></div>
+                        <div class="input-group"><span class="input-group-text">Dolls</span><select id="dolls" class="form-select" required="">
+                            <option value=""></option>
+                            <option value="3">I play with human dolls very often</option>
+                            <option value="2">I play with human dolls sometimes</option>
+                            <option value="1">I play with human dolls rarely</option>
+                            <option value="0">I never play with human dolls</option>
+                        </select></div>
+                        <div class="input-group"><span class="input-group-text">Other Exposure</span><input class="form-control" id="exposures" type="text" placeholder="Other interactions you have with artificial humans" required=""></div>
+                        <div class="input-group"><span class="input-group-text">Overall Comfort</span><select id="comfort" class="form-select" required="">
+                            <option value=""></option>
+                            <option value="2">I am very comfortable in interacting with artificial humans</option>
+                            <option value="1">I am comfortable in interacting with artificial humans</option>
+                            <option value="0">I am neutral in interacting with artificial humans</option>
+                            <option value="-1">I am uncomfortable in interacting with artificial humans</option>
+                            <option value="-2">I am very uncomfortable in interacting with artificial humans</option>
                         </select></div>
                         <div class="my-2"><button class="btn btn-primary shadow ms-2" type="submit">Complete participation in this study</button></div>
                     </div>
