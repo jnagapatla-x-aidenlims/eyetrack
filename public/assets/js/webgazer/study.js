@@ -18,15 +18,15 @@ async function start() {
         $('#study').attr("style", `background-image: url('${image.noise}'); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100vh`);
         $('#face').attr("src", image.source)
 
-        x = document.getElementById("face").getBoundingClientRect().x;
-        width = document.getElementById("face").getBoundingClientRect().width;
-
         // Show cross for 1 second
         await sleep(1000);
 
         // Remove cross; present face
         $('#cross').attr("hidden", "");
         $('#face').removeAttr("hidden");
+
+        x = document.getElementById("face").getBoundingClientRect().x;
+        width = document.getElementById("face").getBoundingClientRect().width;
 
         // Show face for 1.5 seconds
         gazedata = await collect();
@@ -44,6 +44,7 @@ async function start() {
 
         // Present interface until submission
         await new Promise(function(resolve) {$('#postcyclebutton').on("submit", resolve);});
+        $('#pchead').html(`Response on Image #${i+1} of 15`);
         
         // Get participant opinions
         attractiveness = $('#postcycleattractiveness').val();

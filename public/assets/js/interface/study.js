@@ -39,7 +39,7 @@ const postcycle = `
     <div class="row pt-5">
         <div class="col-md-8 col-xxl-6 text-center text-md-start mx-auto">
             <div class="text-center">
-                <h1 class="display-4 fw-bold mb-5" style="color: #00205c;">Response on Image</h1>
+                <h1 class="display-4 fw-bold mb-5" style="color: #00205c;" id="pchead">Response on Image</h1>
                 <p class="fs-5 text-muted mb-5"><span style="color: rgb(0, 32, 92);">You were shown an image of an artificially-generated or a real human face in the previous page. Please enter the </span><span style="text-decoration: underline; color: rgb(0, 32, 92);">feeling that this face elicited in you</span><span style="color: rgb(0, 32, 92);">.</span></p>
                 <form class="d-flex justify-content-center flex-wrap flex-lg-nowrap" id="postcyclebutton" onSubmit="return false;" data-bs-theme="light">
                     <div class="vstack gap-3">
@@ -60,7 +60,7 @@ const postcycle = `
                             <option value=""></option>
                             <option value="2">I find the image warm and positive</option>
                             <option value="1">I do not feel much of anything</option>
-                            <option value="o">The image is cold and makes me feel negative</option>
+                            <option value="0">The image is cold and makes me feel negative</option>
                         </select></div>
                         <div class="my-2"><button class="btn btn-primary shadow ms-2" type="submit">Proceed to the next stage</button></div>
                     </div>
